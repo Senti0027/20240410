@@ -62,22 +62,22 @@
         let val;
         let expression = "";
         function init() {
-            let btns = document.querySelectorAll("button");
-            for (let i = 0; i < btns.length; i++) {
-                btns[i].addEventListener('click', buttonClick);
+            let btns = document.querySelectorAll("button");//讓btns獲取button中的所有元素
+            for (let i = 0; i < btns.length; i++) {//用for迴圈查看所有btns元素
+                btns[i].addEventListener("click", buttonClick);//監聽按鈕是否有活動並執行"buttonClick"函式
             }
 
         }
         function buttonClick() {
-            val = this.value;
-            let display = document.getElementById("display");
+            val = this.value;//將value(每個按鈕的值)賦予val
+            let display = document.getElementById("display");//將id為"display"的元素賦予display
             switch (val) {
                 case '=':
-                    let result = eval(expression);
+                    let result = eval(expression);//求字符串表達式的值
                     display.innerHTML = result;
                     break;
                 case 'C':
-                    display.innerHTML = "0";
+                    display.innerHTML = "0";//歸零
                     expression = "";
                     break;
                 default:
